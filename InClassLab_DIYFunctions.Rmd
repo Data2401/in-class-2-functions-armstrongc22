@@ -91,5 +91,21 @@ game_of_15("a", "b")
 
 ```{r}
 # Your "cheating" function goes here
+game_of_15 <- function(person1, person2){
+  roll1 <- sample(4:6, 15, replace = T)
+  roll2 <- sample(1:6, 15, replace = T)
+ 
+  sum1 <- sum(roll1 > roll2)
+  sum2 <- sum(roll2 > roll1)
+  if (sum1 == sum2){
+    return("It's a draw")
+  } else if (sum1 > sum2){
+    return(paste(person1, "wins!"))
+  } else {
+    return(paste(person2, "wins!"))
+  }
+}
+
+game_of_15("a", "b")
 ```
 
